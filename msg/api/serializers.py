@@ -16,7 +16,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Message
-        exclude = ('id',)
+        fields = '__all__'
 
     def get_time_since_creation(self, object):
         return timesince(object.created_date, datetime.now(timezone.utc))
