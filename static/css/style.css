@@ -5,7 +5,7 @@ body {
     font-size: 20px;
 }
 h5 {
-  font-size: 25px;
+  font-size: 15px;
   color: black;
 }
 
@@ -104,6 +104,7 @@ small {
 }
 
 .msg-wrap .media-heading {
+    font-size: 15px;
     color: black;
     font-weight: 700;
 }
@@ -146,4 +147,9 @@ body::-webkit-scrollbar {
 
 ::-webkit-scrollbar-thumb:window-inactive {
     background: #ddd;
+}
+
+.custom {
+    padding: 10px 30px;
+    font-size: 20px;
 }

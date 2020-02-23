@@ -25,6 +25,7 @@ urlpatterns = [
 
     path('api/', include('msg.api.urls')),
     path('', index, name='chat'),
+    path('msg/', include(('msg.urls', 'msg'), namespace='msg')),
 
 ]
 
