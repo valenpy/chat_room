@@ -1,4 +1,4 @@
-# Live Chat Room REST API
+# Chat Room REST API
 
 Build by using Django, Django REST Framework, PostgreSQL
 
