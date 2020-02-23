@@ -23,6 +23,7 @@ from msg.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    path('api/', include('msg.api.urls')),
     path('', index, name='chat'),
 
 ]
