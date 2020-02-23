@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 from environs import Env
 
@@ -24,14 +25,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str('SECRET_KEY')
+#SECRET_KEY = env.str('SECRET_KEY')
+SECRET_KEY = 'rzw1!(uf$tugnze%qoi!8@zqsps!)tndb1eqzr1gtnbe+!yw%j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 MSG_PER_PAGE = 10
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+
+#for heroku app
+ALLOWED_HOSTS = ['chat-space-room.herokuapp.com']
 
 # Application definition
 
@@ -83,13 +88,24 @@ WSGI_APPLICATION = 'chat_room.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env.str('DB_NAME'),
+#         'USER': env.str('DB_USER'),
+#         'PASSWORD': env.str('DB_PASSWORD'),
+#         'HOST': env.str('DB_HOST'),
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.str('DB_NAME'),
-        'USER': env.str('DB_USER'),
-        'PASSWORD': env.str('DB_PASSWORD'),
-        'HOST': env.str('DB_HOST'),
+        'NAME': 'chat_room',
+        'USER': 'postgres',
+        'PASSWORD': 'Tinka140792',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -128,8 +144,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+#for heroku app
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+#for heroku app
+django_heroku.settings(locals())
